@@ -7,4 +7,6 @@ export const StyledMain = styled.main`
   border: 1px solid black;
   margin-left: 15vw;
   margin-top: 2vh;
+  display: flex;
+  flex-wrap: wrap;
 `;

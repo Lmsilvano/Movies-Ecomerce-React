@@ -6,8 +6,8 @@ export const StyledDivCardsMovies = styled.div`
     align-content: center;
     align-items: center;
     justify-content: center;
-    width: 23%;
-    height: 465px;
+    width: 200px;
+    height: 350px;
     margin: 10px;
     padding: 10px;
     border: 1px solid rgba(0,0,0,0.1);
@@ -20,9 +20,14 @@ export const StyledDivCardsMovies = styled.div`
             width: 75%;
          }         
     .cardIMGMovie {
-        width: 250px;
+        width: 95%;
+        height: 35%;
         border-radius: 10px;
         flex:1;
+        img{
+            width: 90%;
+            height: 95%;
+        }
         @media (max-width: 1430px) {
             width: 95%;
          }
