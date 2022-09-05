@@ -2,18 +2,14 @@ import React, { useState, useEffect } from 'react'
 import Form from 'react-bootstrap/Form';
 import SearchInputContainer from "./style";
 import { GiMagnifyingGlass } from 'react-icons/gi'
-import { optionsGen, getResponse } from '../../Services/tmbdbapi'
-
+import { MoviesShowList } from '../../Context/moviesContext'
 export const SearchInput = () => {
     const [query, setQuery] = useState('')
-    const [movies, setMovies] = useState('')
+    const { moviesListReq } = MoviesShowList()
 
-    useEffect(() => console.log(movies), [movies])
-    function handleSearch(e) {
-        console.log(process.env.APIKEY)
-        const options = optionsGen(query.toLowerCase())
-        console.log(options)
 
+    async function handleSearch(e) {
+        moviesListReq(query)
     }
 
 
