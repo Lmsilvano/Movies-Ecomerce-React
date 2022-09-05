@@ -50,7 +50,12 @@ export const LogoContainer = styled.div`
            img{
             width: 250%;
            }
-         }       
+         }
+  @media (max-width: 350px) {
+          
+          margin-left: 1vw; 
+          
+         }              
                          
 `;
 

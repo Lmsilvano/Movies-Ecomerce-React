@@ -11,9 +11,9 @@ const Header = ({ display }) => {
                 <Logo />
                 <span>Movies</span>
             </S.LogoContainer>
-            <S.SearchInputContainer>
-                <SearchInput />
-            </S.SearchInputContainer>
+
+            <SearchInput />
+
             <S.NavContainer>
                 <BiHeart />
                 <AiOutlineShoppingCart />
