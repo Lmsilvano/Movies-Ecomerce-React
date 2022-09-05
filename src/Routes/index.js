@@ -1,12 +1,14 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { routes } from "./routes";
+import { AnimatePresence } from 'framer-motion';
 
-
-function AppRoutes() {
+const AppRoutes = () => {
+    const location = useLocation();
 
     return (
-        <BrowserRouter>
-            <Routes>
+
+        <AnimatePresence>
+            <Routes location={location} key={location.pathname}>
                 {routes.map(({ path, element }, idx) => (
                     <Route
                         path={path}
@@ -15,6 +17,7 @@ function AppRoutes() {
                     />
                 ))}
             </Routes>
-        </BrowserRouter>)
+        </AnimatePresence>
+    )
 };
 export default AppRoutes;
