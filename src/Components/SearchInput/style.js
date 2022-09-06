@@ -13,28 +13,33 @@ const SearchInputContainer = styled.div`
     flex-direction: row;
     position: relative;
     input{
-      width: 20vw;
-      min-width: 193px;
-      min-height: 30px;
-      border: none;
-      border-radius: 2px;
+      width: 25vw !important;
+      
+      min-width: 193px !important;
+      min-height: 30px !important;
+      border: none !important;
+      border-radius: 2px !important;
     }
     label{
+      
       display: flex;
-      height: 100%;
+      height: auto;
       align-content: center;
       align-items: center;
       position:absolute;
-      right:0;
+      right:0 !important;
+      width: auto !important;
       z-index:10;
+      cursor: pointer !important;
       svg{
+        pointer-events: all !important;
         border:none;
         background:transparent;
         outline:none;
         color: #cb2f2f;
         width: 40px;
         height: 25px;
-        cursor: pointer;
+        cursor: pointer !important;
       }
     }
  }        

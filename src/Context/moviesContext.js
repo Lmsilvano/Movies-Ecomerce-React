@@ -6,19 +6,23 @@ import {
 const MoviesContext = createContext()
 
 function MoviesProvider({ children }) {
-    const [responseApiMovies, setResponse] = useState()
-    //const [waiting, setWaiting] = useState(false)
+    const [responseApiMovies, setResponse] = useState();
+    const [waiting, setWaiting] = useState(0);
 
     async function moviesListReq(query) {
-        //setWaiting(true)
+
         const options = optionsGen(query.toLowerCase())
         const response = await getResponse(options)
-        //setWaiting(false)
         return setResponse(response.results)
+    }
+    function handdleWaiting(on = false) {
+        if (on) {
+            return setWaiting(1);
+        } else return setWaiting(0);
     }
 
     return (
-        <MoviesContext.Provider value={{ responseApiMovies, moviesListReq }}>
+        <MoviesContext.Provider value={{ waiting, responseApiMovies, moviesListReq, handdleWaiting }}>
             {children}
         </MoviesContext.Provider>
     )

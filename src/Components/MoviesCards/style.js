@@ -7,12 +7,32 @@ export const StyledDivCardsMovies = styled.div`
     align-items: center;
     justify-content: center;
     width: 200px;
-    height: 350px;
+    height: 450px;
     margin: 10px;
     padding: 10px;
     border: 1px solid rgba(0,0,0,0.1);
     border-radius: 8px;
     box-shadow: rgb(0 0 0 / 35%) 0px 4px 12px;
+    position: relative;
+    .favHeart{
+        position:absolute;
+        right:0;
+        top: 0;
+        z-index: 100;
+        max-width: 40px;
+        max-height: 50px;
+        cursor:pointer;
+        transition: 1600ms;
+        path{
+            width: 30px;
+            height: 40px;
+            
+        }
+        :hover{
+            height: 50px;
+        }
+         
+        }
     @media (max-width: 1372px) {
             width: 35%;
          }
@@ -21,7 +41,7 @@ export const StyledDivCardsMovies = styled.div`
          }         
     .cardIMGMovie {
         width: 95%;
-        height: 35%;
+        height: 45%;
         border-radius: 10px;
         flex:1;
         img{
@@ -39,30 +59,56 @@ export const StyledDivCardsMovies = styled.div`
         margin: 20px;
         flex:2;
         align-content: center;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         text-align: justify;
         box-sizing: border-box;
         width: 100% ;
         
         h3{
-            font-weight: 500;
+            font-weight: 700;
             letter-spacing: 1px;
             width: 80%;
         }
-        p{
-            color:black;
-            margin-top: 10px;
-            overflow: hidden; 
-            text-overflow: ellipsis; 
-            display: -webkit-box;
-            -webkit-line-clamp: 5; 
-            -webkit-box-orient: vertical;
-            @media (max-width: 1270px) {
-                -webkit-line-clamp: 3; 
-            
-         } 
-        }
+        .cardContentBody{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            width: 80%;
+            height: auto;
+            .cardContentUpperBody{
+                width: 100%;
+                height: auto;
+                display: flex;
+                h4{
+                margin-left: 8px;    
+                width: 100%;
+                height: auto;
+                }
+                p{
+                  font-weight: bolder;
+                  margin-left: 2px;  
+                }
+            }
+            .cardContentLowerBody{
+                display: flex;
+                flex-direction: column;
+                p{
+                color:black;
+                margin-top: 10px;
+                overflow: hidden; 
+                text-overflow: ellipsis; 
+                display: -webkit-box;
+                -webkit-line-clamp: 5; 
+                -webkit-box-orient: vertical;
+                @media (max-width: 1270px) {
+                    -webkit-line-clamp: 3;   
+                } 
+                }
+             }
+           
+    }
+       
     }
     a{
         text-decoration: none;
@@ -77,6 +123,31 @@ export const StyledDivCardsMovies = styled.div`
             background: none;
             color: #24193d;
             font-weight: bold;
+        }
+    }
+    span{
+        position: absolute;
+        bottom: 35px;
+        font-weight: bolder;
+        right:2px;
+    }
+
+    button{
+        cursor:pointer;
+        border-radius: 8px;
+        position: absolute;
+        bottom:0;
+        right:0;
+        width: 100%;
+        height: 30px;
+        color: white;
+        font-weight: bolder;
+        border: none;
+        background: linear-gradient(10deg, #ff9800 0, #ff8400 12.5%, #ff6f12 25%, #fb5823 37.5%, #e93f2b 50%, #d52430 62.5%, #c20034 75%, #b10038 87.5%, #a2003d 100%);
+        transition: 750ms;
+        :hover{
+            height: 34px;
+            color: #5bb58b;
         }
     }
     

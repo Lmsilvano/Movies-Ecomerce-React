@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react'
 import Form from 'react-bootstrap/Form';
 import SearchInputContainer from "./style";
@@ -5,10 +6,10 @@ import { GiMagnifyingGlass } from 'react-icons/gi'
 import { MoviesShowList } from '../../Context/moviesContext'
 export const SearchInput = () => {
     const [query, setQuery] = useState('')
-    const { moviesListReq } = MoviesShowList()
-
+    const { moviesListReq, handdleWaiting, responseApiMovies } = MoviesShowList()
 
     async function handleSearch(e) {
+        handdleWaiting(true)
         moviesListReq(query)
     }
 
