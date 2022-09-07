@@ -6,8 +6,9 @@ export const StyledDivCardsMovies = styled.div`
     align-content: center;
     align-items: center;
     justify-content: center;
-    width: 200px;
-    height: 450px;
+    width: 265px;
+    max-width: 270px;
+    height: 520px;
     margin: 10px;
     padding: 10px;
     border: 1px solid rgba(0,0,0,0.1);
@@ -40,13 +41,13 @@ export const StyledDivCardsMovies = styled.div`
             width: 75%;
          }         
     .cardIMGMovie {
-        width: 95%;
-        height: 45%;
+        width: 230px;
+        height: 200px;
         border-radius: 10px;
         flex:1;
         img{
-            width: 90%;
-            height: 95%;
+            width: 230px;
+            height: 200px;
         }
         @media (max-width: 1430px) {
             width: 95%;
@@ -67,8 +68,6 @@ export const StyledDivCardsMovies = styled.div`
         
         h3{
             font-weight: 700;
-            letter-spacing: 1px;
-            width: 80%;
         }
         .cardContentBody{
             display: flex;
@@ -82,8 +81,6 @@ export const StyledDivCardsMovies = styled.div`
                 display: flex;
                 h4{
                 margin-left: 8px;    
-                width: 100%;
-                height: auto;
                 }
                 p{
                   font-weight: bolder;
@@ -99,7 +96,7 @@ export const StyledDivCardsMovies = styled.div`
                 overflow: hidden; 
                 text-overflow: ellipsis; 
                 display: -webkit-box;
-                -webkit-line-clamp: 5; 
+                -webkit-line-clamp: 2; 
                 -webkit-box-orient: vertical;
                 @media (max-width: 1270px) {
                     -webkit-line-clamp: 3;   
@@ -133,6 +130,10 @@ export const StyledDivCardsMovies = styled.div`
     }
 
     button{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
         cursor:pointer;
         border-radius: 8px;
         position: absolute;

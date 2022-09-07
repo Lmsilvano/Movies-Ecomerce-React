@@ -6,15 +6,15 @@ import genreConversor from '../../Utils/genreConversor';
 
 
 const MainPage = () => {
-    const { responseApiMovies, waiting, handdleWaiting } = MoviesShowList()
+    const { responseApiMovies, waiting } = MoviesShowList()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(() => handdleWaiting(false), [responseApiMovies])
+    useEffect(() => console.log(responseApiMovies), [responseApiMovies])
 
 
     if (typeof responseApiMovies === 'undefined') {
         return (
             <Layout >
-                <p className='warning'>Experimente Buscar um filme...</p>
+                <p className='warning'>Experimente buscar por um filme...</p>
             </Layout >
         )
     } else if (waiting) {
@@ -23,7 +23,7 @@ const MainPage = () => {
 
             <Layout >
 
-                <p>Carregando...</p>
+                <p p className='warning'>Carregando...</p>
 
             </Layout >
         )
@@ -36,6 +36,7 @@ const MainPage = () => {
                     return (
                         <MoviesCards
                             key={data.id}
+                            id={data.id}
                             img={data.poster_path ? `https://image.tmdb.org/t/p/w300${data.poster_path}`
                                 : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png'}
                             title={data.title}
@@ -50,10 +51,10 @@ const MainPage = () => {
     } else if (responseApiMovies.length === 0) {
         return (
             <Layout >
-                <p className='warning'>Infelizmente nao ha resultados para essa busca...</p>
+                <p className='warning'>Infelizmente não há resultados para essa busca...</p>
             </Layout >)
 
-    }
+    } else return null
 }
 
 export default MainPage

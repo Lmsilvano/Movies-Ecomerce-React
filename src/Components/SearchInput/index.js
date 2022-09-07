@@ -6,11 +6,15 @@ import { GiMagnifyingGlass } from 'react-icons/gi'
 import { MoviesShowList } from '../../Context/moviesContext'
 export const SearchInput = () => {
     const [query, setQuery] = useState('')
-    const { moviesListReq, handdleWaiting, responseApiMovies } = MoviesShowList()
+    const { moviesListReq } = MoviesShowList()
 
     async function handleSearch(e) {
-        handdleWaiting(true)
-        moviesListReq(query)
+
+        if (e.type === 'keypress' && e.charCode === 13) {
+            moviesListReq(query)
+        } else if (e.type === 'click') {
+            moviesListReq(query)
+        } else return
     }
 
 
@@ -24,8 +28,9 @@ export const SearchInput = () => {
                     placeholder="Busque por um filme..."
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
+                    onKeyPress={(e) => handleSearch(e)}
                 />
-                <label htmlFor="floatingInputCustom" onClick={(e) => handleSearch(e.target.value)}><GiMagnifyingGlass /></label>
+                <GiMagnifyingGlass onClick={(e) => handleSearch(e)} />
 
             </Form.Floating>
         </SearchInputContainer>

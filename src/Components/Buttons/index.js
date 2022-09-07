@@ -1,7 +1,9 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
-export const PurchaseButton = () => {
+import { MoviesShowList } from '../../Context/moviesContext';
+export const PurchaseButton = ({ id }) => {
+    const { localStorageAdd } = MoviesShowList()
     return (
-        <Button variant="primary" size="lg" className='purchaseButton'>Adicionar</Button>
+        <Button id={id} variant="primary" size="lg" className='purchaseButton' onClick={(e) => localStorageAdd(e, 'kart')}>Adicionar</Button>
     )
 }

@@ -11,5 +11,10 @@ export const StyledMain = styled.main`
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
-  align-items: center
+  align-items: center;
+  @media (max-width: 829px) {
+            width: 95vw;
+            margin-left: 8vw;
+            margin-top: 10vh;
+         }
 `;

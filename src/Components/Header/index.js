@@ -1,7 +1,6 @@
 import React from 'react'
 import * as S from "./style";
-import { BiHeart } from 'react-icons/bi';
-import { AiOutlineShoppingCart } from 'react-icons/ai';
+import SideBar from '../SideBar'
 import SearchInput from '../SearchInput'
 import Logo from '../Logo'
 const Header = ({ display }) => {
@@ -15,8 +14,8 @@ const Header = ({ display }) => {
             <SearchInput />
 
             <S.NavContainer>
-                <BiHeart />
-                <AiOutlineShoppingCart />
+                <SideBar placeholder='fav' />
+                <SideBar placeholder='kart' />
             </S.NavContainer>
         </S.StyledHeader>
     )

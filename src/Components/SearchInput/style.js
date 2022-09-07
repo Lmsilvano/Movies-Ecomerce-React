@@ -9,7 +9,7 @@ const SearchInputContainer = styled.div`
     min-height: 30px;
     align-content: flex-start;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: row;
     position: relative;
     input{
@@ -20,17 +20,7 @@ const SearchInputContainer = styled.div`
       border: none !important;
       border-radius: 2px !important;
     }
-    label{
-      
-      display: flex;
-      height: auto;
-      align-content: center;
-      align-items: center;
-      position:absolute;
-      right:0 !important;
-      width: auto !important;
-      z-index:10;
-      cursor: pointer !important;
+    
       svg{
         pointer-events: all !important;
         border:none;
@@ -39,9 +29,11 @@ const SearchInputContainer = styled.div`
         color: #cb2f2f;
         width: 40px;
         height: 25px;
+        position:absolute;
+        right: 0;
         cursor: pointer !important;
       }
-    }
+    
  }        
 
 `;
