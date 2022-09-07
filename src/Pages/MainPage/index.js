@@ -23,7 +23,7 @@ const MainPage = () => {
 
             <Layout >
 
-                <p p className='warning'>Carregando...</p>
+                <p className='warning'>Carregando...</p>
 
             </Layout >
         )

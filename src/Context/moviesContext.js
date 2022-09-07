@@ -17,7 +17,7 @@ function MoviesProvider({ children }) {
         return setResponse(response.results)
     }
     async function localStorageAdd(arg, to) {
-        console.log("oi?")
+        console.log(arg.target.id)
         const movieToAdd = responseApiMovies.filter((movie) => {
             if (Number(movie.id) === Number(arg.target.id)) {
                 return movie
