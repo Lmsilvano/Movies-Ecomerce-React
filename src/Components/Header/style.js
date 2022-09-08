@@ -105,11 +105,14 @@ export const SearchInputContainer = styled.div`
 export const NavContainer = styled.div`
   display: flex;
   margin-right: 5vw;
-  svg{
-    color: white;
-    width: 50px;
-    height: 35px;
-    cursor: pointer;
+  div{
+      svg{
+        color: white;
+        width: 50px;
+        height: 35px;
+        cursor: pointer;
+    
+      }
   }
   @media (max-width: 442px) {
            svg{

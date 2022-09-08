@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
-import { BiHeart } from 'react-icons/bi'
-
+import { BiHeart } from 'react-icons/bi';
+import { DisplayNumber } from './style';
+import { MoviesShowList } from '../../Context/moviesContext'
 function SideBar({ placeholder }) {
     const [show, setShow] = useState(false);
+    const [numberOfItens, setNumberOfItens] = useState(false);
+    const { displayNumberOfItens, renderNumberOfItens } = MoviesShowList();
+
+    useEffect(() => {
+        console.log('Atualizou o numero de itens', numberOfItens)
+        setNumberOfItens(displayNumberOfItens(placeholder))
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [renderNumberOfItens])
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -12,7 +21,11 @@ function SideBar({ placeholder }) {
         return (
             <>
 
-                <AiOutlineShoppingCart onClick={handleShow} />
+                <DisplayNumber >
+                    <AiOutlineShoppingCart onClick={handleShow} />
+                    {numberOfItens}
+                </DisplayNumber >
+
                 <Offcanvas show={show} onHide={handleClose} placement={'end'} name={'end'} scroll={true} backdrop={true}>
                     <Offcanvas.Header closeButton>
                         <Offcanvas.Title>Carrinho</Offcanvas.Title>
@@ -27,8 +40,10 @@ function SideBar({ placeholder }) {
     } else if (placeholder === 'fav') {
         return (
             <>
-
-                <BiHeart onClick={handleShow} />
+                <DisplayNumber >
+                    <BiHeart onClick={handleShow} />
+                    {numberOfItens}
+                </DisplayNumber>
                 <Offcanvas show={show} onHide={handleClose} placement={'end'} name={'end'} scroll={true} backdrop={true}>
                     <Offcanvas.Header closeButton>
                         <Offcanvas.Title>Favoritos</Offcanvas.Title>

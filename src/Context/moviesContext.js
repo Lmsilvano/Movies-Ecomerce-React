@@ -7,6 +7,7 @@ const MoviesContext = createContext()
 
 function MoviesProvider({ children }) {
     const [responseApiMovies, setResponse] = useState();
+    const [renderNumberOfItens, setRendersNumberOfItens] = useState(0);
     const [waiting, setWaiting] = useState(0);
 
     async function moviesListReq(query) {
@@ -25,18 +26,27 @@ function MoviesProvider({ children }) {
         })
         const actualkart = JSON.parse(localStorage.getItem(`${to}`));
         if (!actualkart) {
-            console.log("entrou aqui como se nao tivesse", actualkart)
+            setRendersNumberOfItens(1)
             return localStorage.setItem(`${to}`, JSON.stringify(movieToAdd));
         } else {
-            console.log("entrou aqui como se tivesse", actualkart)
             actualkart.push(movieToAdd)
+            setRendersNumberOfItens(actualkart.length)
             return localStorage.setItem(`${to}`, JSON.stringify(actualkart));
+        }
+
+    }
+    function displayNumberOfItens(from) {
+        const actualkart = JSON.parse(localStorage.getItem(`${from}`));
+        if (!actualkart) {
+            return 0;
+        } else {
+            return actualkart.length;
         }
 
     }
 
     return (
-        <MoviesContext.Provider value={{ waiting, responseApiMovies, moviesListReq, localStorageAdd }}>
+        <MoviesContext.Provider value={{ waiting, responseApiMovies, moviesListReq, localStorageAdd, displayNumberOfItens, renderNumberOfItens }}>
             {children}
         </MoviesContext.Provider>
     )
