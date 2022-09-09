@@ -6,6 +6,9 @@ export const StyledDivCardsKart = styled.div`
         align-content: center;
         justify-content: space-between;
         align-items: flex-start;
+        border: 1px solid rgba(0,0,0,0.1);
+        margin-bottom: 5px;
+        padding: 5px;
         img{
             width: 50px;
             height: 50px;
