@@ -15,6 +15,17 @@ export const GlobalStyles = createGlobalStyle`
         @media (max-width: 410px) {
                 top: 100px !important;
             }
+        
+    }
+    .offcanvas-title{
+        p{
+            text-decoration: underline;
+            cursor: pointer;
+            transition: 550ms;
+            :hover{
+                font-weight: bolder;
+            }
+        }
     }
     .offcanvas-body{
         position: relative !important;
