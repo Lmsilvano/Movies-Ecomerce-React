@@ -3,7 +3,7 @@ import * as S from "./style";
 import SideBar from '../SideBar';
 import SearchInput from '../SearchInput';
 import Logo from '../Logo';
-import { Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
 const Header = ({ display }) => {
     return (
         <>
