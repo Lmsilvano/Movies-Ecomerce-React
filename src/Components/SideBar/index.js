@@ -44,13 +44,14 @@ function SideBar({ placeholder }) {
                                         : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png'}
                                     title={data.title}
                                     price={65.59}
+                                    to={'kart'}
 
                                 />
 
 
                             )
                         }) : ''}
-                        {itensOfLocalStorage ? <S.Total> <h3>Total: R$ {65.59 * itensOfLocalStorage.length}</h3></S.Total> : ''}
+                        {itensOfLocalStorage ? <S.Total> <h3>Total: R$ {(65.59 * itensOfLocalStorage.length).toFixed(2)}</h3></S.Total> : ''}
                     </Offcanvas.Body>
                 </Offcanvas>
             </>

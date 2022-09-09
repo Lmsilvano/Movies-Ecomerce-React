@@ -15,6 +15,7 @@ export const StyledDivCardsKart = styled.div`
             position: absolute;
             top:0;
             right:0;
+            cursor: pointer;
             @media (max-width: 405px) {
                     top: 20px; 
                 } 

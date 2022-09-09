@@ -34,6 +34,21 @@ function MoviesProvider({ children }) {
         }
 
     }
+    function localStorageRemove(arg, to) {
+        const actualkart = JSON.parse(localStorage.getItem(`${to}`));
+        if (!actualkart) {
+            return
+        } else {
+            const newKart = actualkart.filter((movie) => {
+                if (Number(movie.id) === Number(arg.target.id)) {
+                    return false
+                } else return movie
+            })
+            setRendersNumberOfItens(newKart.length)
+            return localStorage.setItem(`${to}`, JSON.stringify(newKart));
+        }
+
+    }
     function displayNumberOfItens(from) {
         const actualkart = JSON.parse(localStorage.getItem(`${from}`));
         if (!actualkart) {
@@ -45,7 +60,7 @@ function MoviesProvider({ children }) {
     }
 
     return (
-        <MoviesContext.Provider value={{ waiting, responseApiMovies, moviesListReq, localStorageAdd, displayNumberOfItens, renderNumberOfItens }}>
+        <MoviesContext.Provider value={{ waiting, responseApiMovies, moviesListReq, localStorageAdd, displayNumberOfItens, renderNumberOfItens, localStorageRemove }}>
             {children}
         </MoviesContext.Provider>
     )
