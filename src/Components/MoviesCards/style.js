@@ -68,6 +68,7 @@ export const StyledDivCardsMovies = styled.div`
         
         h3{
             font-weight: 700;
+            text-align: center;
         }
         .cardContentBody{
             display: flex;

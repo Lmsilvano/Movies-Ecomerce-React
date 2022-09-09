@@ -13,4 +13,7 @@ export const GlobalStyles = createGlobalStyle`
     .offcanvas.offcanvas-end{
         top: 125px !important;
     }
+    .offcanvas-body{
+        position: relative;
+    }
 `;

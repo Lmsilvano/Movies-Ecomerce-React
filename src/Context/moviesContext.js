@@ -18,7 +18,6 @@ function MoviesProvider({ children }) {
         return setResponse(response.results)
     }
     async function localStorageAdd(arg, to) {
-        console.log(arg.target.id)
         const movieToAdd = responseApiMovies.filter((movie) => {
             if (Number(movie.id) === Number(arg.target.id)) {
                 return movie
@@ -29,7 +28,7 @@ function MoviesProvider({ children }) {
             setRendersNumberOfItens(1)
             return localStorage.setItem(`${to}`, JSON.stringify(movieToAdd));
         } else {
-            actualkart.push(movieToAdd)
+            actualkart.push({ ...movieToAdd[0] })
             setRendersNumberOfItens(actualkart.length)
             return localStorage.setItem(`${to}`, JSON.stringify(actualkart));
         }

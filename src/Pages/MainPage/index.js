@@ -8,7 +8,7 @@ import genreConversor from '../../Utils/genreConversor';
 const MainPage = () => {
     const { responseApiMovies, waiting } = MoviesShowList()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(() => console.log(responseApiMovies), [responseApiMovies])
+    //useEffect(() => console.log(responseApiMovies), [responseApiMovies])
 
 
     if (typeof responseApiMovies === 'undefined') {

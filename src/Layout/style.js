@@ -6,7 +6,7 @@ export const StyledMain = styled.main`
   height: auto;
   /* border: 1px solid black; */
   margin-left: 15vw;
-  margin-top: 2vh;
+  margin-top: 20vh;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
@@ -15,6 +15,6 @@ export const StyledMain = styled.main`
   @media (max-width: 829px) {
             width: 95vw;
             margin-left: 8vw;
-            margin-top: 10vh;
+            margin-top: 20vh;
          }
 `;

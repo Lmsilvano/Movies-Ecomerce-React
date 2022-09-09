@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 
 export const StyledHeader = styled.header`
+  position:fixed;
+  z-index: 999;
+  top:0;
+  left:0;
   width: 100vw;
   height: 13vh ;
   background: linear-gradient(10deg, #ff9800 0, #ff8400 12.5%, #ff6f12 25%, #fb5823 37.5%, #e93f2b 50%, #d52430 62.5%, #c20034 75%, #b10038 87.5%, #a2003d 100%);
