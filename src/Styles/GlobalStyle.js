@@ -4,6 +4,9 @@ export const GlobalStyles = createGlobalStyle`
     body{
         background-color: #f0f2f5;
         font-family: 'Open Sans', sans-serif;
+        a{
+            text-decoration: none;
+        }
     }
 
     /* Personalizando estilos do bootstrap */

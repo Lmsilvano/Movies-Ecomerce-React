@@ -3,6 +3,7 @@ import {
     optionsGen,
     getResponse,
 } from '../Services/tmbdbapi.js'
+import { favToKart } from '../Utils/favToKart'
 const MoviesContext = createContext()
 
 function MoviesProvider({ children }) {
@@ -19,17 +20,14 @@ function MoviesProvider({ children }) {
         setWaiting(0)
         return setResponse(response.results)
     }
-    async function localStorageAdd(arg, to) {
-        const movieToAdd = responseApiMovies.filter((movie) => {
-            if (Number(movie.id) === Number(arg.target.id)) {
-                return movie
-            } else return false
-        })
+    async function localStorageAdd(arg, to, from) {
+        const movieToAdd = favToKart(responseApiMovies, arg, from);
         const actualkart = JSON.parse(localStorage.getItem(`${to}`));
         if (!actualkart) {
             setRendersNumberOfItens(actualkart)
             return localStorage.setItem(`${to}`, JSON.stringify(movieToAdd));
         } else {
+            console.log(movieToAdd)
             actualkart.push({ ...movieToAdd[0] })
             setRendersNumberOfItens(actualkart)
             return localStorage.setItem(`${to}`, JSON.stringify(actualkart));

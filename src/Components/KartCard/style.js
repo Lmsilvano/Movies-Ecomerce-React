@@ -9,6 +9,8 @@ export const StyledDivCardsKart = styled.div`
         border: 1px solid rgba(0,0,0,0.1);
         margin-bottom: 5px;
         padding: 5px;
+        height: 100px;
+        border-radius:0 0 0.5rem 0.5rem;
         img{
             width: 50px;
             height: 50px;
@@ -29,7 +31,14 @@ export const StyledDivCardsKart = styled.div`
         }
         p{
             text-align: center;
-            width: 220px;
+            width: 120px;
             font-weight: bolder;
         }
+        button{
+        position: absolute;
+        bottom:0;
+        right:0;
+        width: 100%;
+        height: 30px;
+    }
 `

@@ -5,6 +5,7 @@ import { BiHeart } from 'react-icons/bi';
 import * as S from './style';
 import { MoviesShowList } from '../../Context/moviesContext';
 import { KartCards } from '../KartCard';
+import { CheckoutButton } from '../Buttons'
 function SideBar({ placeholder }) {
     const [show, setShow] = useState(false);
     const [localComponentItens, setLocalC] = useState(false);
@@ -36,6 +37,7 @@ function SideBar({ placeholder }) {
                     <Offcanvas.Header closeButton>
                         <Offcanvas.Title><h2>Carrinho</h2>
                             <p onClick={(e) => handleRemove(placeholder)} >Esvaziar </p>
+                            {localComponentItens ? <S.Total> <h3>Total: R$ {(65.59 * localComponentItens.length).toFixed(2)}</h3></S.Total> : ''}
                         </Offcanvas.Title>
                     </Offcanvas.Header>
                     <Offcanvas.Body>
@@ -49,14 +51,16 @@ function SideBar({ placeholder }) {
                                         : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png'}
                                     title={data.title}
                                     price={65.59}
-                                    to={'kart'}
+                                    to={placeholder}
 
                                 />
 
 
                             )
                         }) : ''}
-                        {localComponentItens ? <S.Total> <h3>Total: R$ {(65.59 * localComponentItens.length).toFixed(2)}</h3></S.Total> : ''}
+
+                        <CheckoutButton onClick={handleClose} />
+
                     </Offcanvas.Body>
                 </Offcanvas>
             </>
@@ -75,8 +79,24 @@ function SideBar({ placeholder }) {
                         </Offcanvas.Title>
                     </Offcanvas.Header>
                     <Offcanvas.Body>
-                        Some text as placeholder. In real life you can have the elements you
-                        have chosen. Like, text, images, lists, etc.
+                        {localComponentItens ? localComponentItens.map((data) => {
+                            console.log(localComponentItens)
+                            return (
+                                <KartCards
+                                    key={data.id}
+                                    id={data.id}
+                                    img={data.poster_path ? `https://image.tmdb.org/t/p/w300${data.poster_path}`
+                                        : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png'}
+                                    title={data.title}
+                                    price={65.59}
+                                    to={placeholder}
+                                    from={'kart'}
+
+                                />
+
+
+                            )
+                        }) : ''}
                     </Offcanvas.Body>
                 </Offcanvas>
             </>
