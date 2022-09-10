@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
-import { StyledPFormError, StyledivForm } from './style'
+import { StyledPFormError, StyledivForm, StyledivForm2 } from './style'
 import * as mask from '../../Utils/masks'
 import { optionsGen, getResponse } from '../../Services/viacepapi';
 import { ufToCity } from '../../Utils/UFtoCity'
@@ -59,7 +59,7 @@ function CheckouForm() {
         console.log('oiiiiiiiiiiiiii', values, actions)
     }
     return (
-        <StyledivForm >
+        <StyledivForm2 >
             <Formik
                 validationSchema={schema}
                 onSubmit={onSubmit}
@@ -77,7 +77,11 @@ function CheckouForm() {
                     <Form>
                         <div className="firstRow">
 
-                            <Field type="text" id="name" name="name" placeholder="Nome Completo" />
+                            <Field type="text" id="name" name="name" autocomplete="off" required />
+                            <label htmlFor="name">
+                                <span>Name</span>
+                            </label>
+
                             {errors.name && touched.name && (
                                 <StyledPFormError>O nome deve possuir ao menos 2 caracteres.</StyledPFormError>
                             )}
@@ -142,7 +146,7 @@ function CheckouForm() {
                     </Form>
                 )}
             </Formik>
-        </StyledivForm>
+        </StyledivForm2>
     )
 }
 
