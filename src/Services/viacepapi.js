@@ -1,10 +1,9 @@
 import axios from "axios";
 
 export function optionsGen(query) {
-    const apiKey = process.env.REACT_APP_TMDB_API_KEY
     const options = {
         method: 'GET',
-        url: `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&page=1&include_adult=false&query=${query}`,
+        url: `https://viacep.com.br/ws/${query}/json/`,
     };
     return options
 
@@ -17,4 +16,8 @@ export async function getResponse(op) {
         return error;
     });
     return apiData;
-}
+};
+
+
+
+
