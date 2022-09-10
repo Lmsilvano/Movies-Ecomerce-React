@@ -19,6 +19,12 @@ export const StyledivForm = styled.div`
      div{
         position: relative;
      }
+     input:-webkit-autofill {
+    -webkit-text-fill-color: blue !important;
+    }
+    input:valid{
+        -webkit-text-fill-color: blue !important;
+    }
      input {
           width: 100%;
           height: 30px;

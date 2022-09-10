@@ -8,10 +8,11 @@ import { ufToCity } from '../../Utils/UFtoCity'
 const schema = Yup.object().shape({
     name: Yup.string().min(2).required(),
     email: Yup.string().email().required(),
-    comment: Yup.string().min(4).max(400).required(),
     cep: Yup.string().min(9).max(9),
     celular: Yup.string().min(10).max(18),
-
+    cidade: Yup.string().min(2).max(20),
+    estado: Yup.string().min(2).max(20),
+    endereco: Yup.string().min(2).max(20),
 })
 //
 function CheckouForm() {
@@ -19,7 +20,6 @@ function CheckouForm() {
     const [valorCell, setValorCell] = useState('')
     const [valorCep, setValorCep] = useState('')
     const [valorEnd, setValorEnd] = useState(false)
-    const [disabledOrEnabled, setDisabledOrEnabled] = useState(true)
     const [cepError, setCepError] = useState(false)
     function handleChangeMaskCpf(event) {
         const { value } = event.target
@@ -40,13 +40,11 @@ function CheckouForm() {
             if (data.erro) {
                 console.log('oiiisdadaxzxsd')
                 setCepError(true)
-                setDisabledOrEnabled(false)
                 return
             } else {
                 const fullEnd = { endereco: data.logradouro, cidade: data.localidade, estado: ufToCity(data.uf) };
                 setValorEnd(fullEnd)
                 setCepError(false)
-                setDisabledOrEnabled(false)
                 return
             }
         } else {
@@ -112,7 +110,7 @@ function CheckouForm() {
                                 <StyledPFormError>Por favor, digite um número de CEP válido.</StyledPFormError>
                             ) : ''}
                             <Field type="text" id="endereco" name="endereco" placeholder="Endereço"
-                                value={valorEnd ? valorEnd.endereco : ''} disabled={disabledOrEnabled} />
+                                value={valorEnd ? valorEnd.endereco : ''} />
 
                             {errors.endereco && touched.endereco && (
                                 <StyledPFormError>Por favor, digite um endereço válido.</StyledPFormError>
@@ -120,12 +118,12 @@ function CheckouForm() {
                         </div>
                         <div className="fifthRow">
                             <Field type="text" id="cidade" name="cidade" placeholder="Cidade"
-                                value={valorEnd ? valorEnd.cidade : ''} disabled={disabledOrEnabled} />
+                                value={valorEnd ? valorEnd.cidade : ''} />
                             {errors.cidade && touched.cidade && (
                                 <StyledPFormError>Por favor, digite uma cidade válida.</StyledPFormError>
                             )}
                             <Field type="text" id="estado" name="estado" placeholder="Estado"
-                                value={valorEnd ? valorEnd.estado : ''} disabled={disabledOrEnabled} />
+                                value={valorEnd ? valorEnd.estado : ''} />
                             {errors.estado && touched.estado && (
                                 <StyledPFormError>Por favor, digite um endereço válido.</StyledPFormError>
                             )}
