@@ -78,57 +78,76 @@ export const StyledivForm = styled.div`
 
 
 export const StyledivForm2 = styled.div`
-    form{
-      div{
-        position: relative;
-        height: 50px;
-        overflow: hidden;
-      }
-      div input{
-        width: 100%;
-        height: 100%;
-        color: #595f6e !important;
-        padding-top: 20px;
-        border:none;
-        outline:none;
-      }
-      div label{
-        position: absolute;
-        bottom: 0px;
-        left: 0%;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        border-bottom: 1px solid black;
-      }
-      div label::after{
-        content: "";
-        position: absolute;
-        left: 0px;
-        bottom: -1px;
-        height: 100%;
-        width: 100%;
-        border-bottom: 3px solid #5fa8d3;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
-      }
-      div span{
-        position:absolute;
-        bottom: 5px;
-        left: 0px;
-        transition: all 0.3s ease;
-      }
+    margin-top: 20px;
+    width: 45%;
+    height: auto;
+    
+    form{ 
 
-      div input:focus + label span, div input:valid + label span{
-        transform: translateY(-150%);
-        font-size: 14px;
-        color: #5fa8d3;
-      }
-      div input:focus + label:after, div input:valid + label::after{
-        transform: translateX(0%) ;
-      }
+      .secondRow, .fifthRow{
+            display: flex;
+            align-content: center;
+            justify-content: space-between;
+            align-items: center;
+            div{
+              width: 45%;
+            }
+           }
+        div{
+            div{
+              margin-top: 30px;
+              position: relative;
+              height: 50px;
+              overflow: hidden;
+            }
+        
+            div input{
+              width: 100%;
+              height: 100%;
+              color: #595f6e !important;
+              padding-top: 20px;
+              border:none;
+              outline:none;
+              border: 1px solid rgba(0,0,0,0.1);
+              box-shadow: rgb(0 0 0 / 35%) 0px 4px 12px;
+            }
+        
+            div label{
+              position: absolute;
+              bottom: 0px;
+              left: 0%;
+              width: 100%;
+              height: 100%;
+              pointer-events: none;
+              border-bottom: 1px solid black;
+            }
+            div label::after{
+              content: "";
+              position: absolute;
+              left: 0px;
+              bottom: -1px;
+              height: 100%;
+              width: 100%;
+              border-bottom: 3px solid #5fa8d3;
+              transform: translateX(-102%);
+              transition: transform 0.3s ease;
+            }
+            div span{
+              position:absolute;
+              bottom: 5px;
+              left: 2px;
+              transition: all 0.3s ease;
+            }
 
-      
+            div input:focus + label span, div input:valid + label span{
+              transform: translateY(-125%);
+              font-size: 14px;
+              color: #5fa8d3;
+            }
+            div input:focus + label:after, div input:valid + label::after{
+              transform: translateX(0%) ;
+            }
+          }  
     }
 
 `

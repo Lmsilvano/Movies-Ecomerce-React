@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Button from 'react-bootstrap/Button';
 import { MoviesShowList } from '../../Context/moviesContext';
 import { StyledButton } from './style';
@@ -18,6 +18,19 @@ export const CheckoutButton = () => {
         <StyledButton>
             <Link to={`/checkout`}> <Button variant="primary" size="lg"
                 className='checkOutButton'>Finalizar Compra</Button></Link>
+        </StyledButton>)
+
+}
+
+
+export const FinishButton = ({ disabled }) => {
+    useEffect(() => {
+
+    }, [disabled])
+    return (
+        <StyledButton>
+            <Button variant="primary" size="lg" disabled={false}
+                className="checkOutButton" type="submit">Finalizar Compra</Button>
         </StyledButton>)
 
 }

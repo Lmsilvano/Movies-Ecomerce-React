@@ -1,14 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
-import { StyledPFormError, StyledivForm, StyledivForm2 } from './style'
+import { StyledPFormError, StyledivForm2 } from './style'
 import * as mask from '../../Utils/masks'
 import { optionsGen, getResponse } from '../../Services/viacepapi';
-import { ufToCity } from '../../Utils/UFtoCity'
+import { ufToCity } from '../../Utils/UFtoCity';
+import { FinishButton } from '../Buttons';
+
+
 const schema = Yup.object().shape({
-    name: Yup.string().min(2).required(),
-    email: Yup.string().email().required(),
-    cep: Yup.string().min(9).max(9),
+    name: Yup.string().min(2).required('Deve Possuir no mínimo 2 caracteres'),
+    email: Yup.string().email().required('Deve possuir formato de email v[alido'),
+    cep: Yup.string().matches(/^\d{5}-\d{3}$/),
     celular: Yup.string().min(10).max(18),
     cidade: Yup.string().min(2).max(20),
     estado: Yup.string().min(2).max(20),
@@ -16,6 +19,10 @@ const schema = Yup.object().shape({
 })
 //
 function CheckouForm() {
+    const ref = useRef(null);
+    const test = () => {
+        console.log(ref)
+    }
     const [valorCpf, setValorCpf] = useState('')
     const [valorCell, setValorCell] = useState('')
     const [valorCep, setValorCep] = useState('')
@@ -28,17 +35,14 @@ function CheckouForm() {
     function handleChangeMaskCell(event) {
         const { value } = event.target
         setValorCell(mask.cellMask(value))
-        console.log(valorCell)
     };
     async function handleChangeMaskCep(event) {
         const { value } = event.target
         if (mask.cepMask(value).length === 9) {
-            console.log('olha eu aqui', value.replace('-', '').trim())
             setValorCep(mask.cepMask(value))
             const op = optionsGen(value.replace('-', '').trim())
             const data = await getResponse(op)
             if (data.erro) {
-                console.log('oiiisdadaxzxsd')
                 setCepError(true)
                 return
             } else {
@@ -56,92 +60,110 @@ function CheckouForm() {
 
 
     const onSubmit = (values, actions) => {
-        console.log('oiiiiiiiiiiiiii', values, actions)
+        console.log('', values, actions)
     }
     return (
         <StyledivForm2 >
             <Formik
                 validationSchema={schema}
                 onSubmit={onSubmit}
+                innerRef={ref}
                 initialValues={{
                     name: '',
+                    cpf: '',
+                    celular: '',
                     email: '',
-                    comment: '',
                     cep: '',
-                    cidade: '',
                     endereco: '',
+                    cidade: '',
                     estado: '',
                 }}
             >
-                {({ isValid, errors, touched, values }) => (
+                {({ isValid, errors, values }) => (
+
+
                     <Form>
                         <div className="firstRow">
 
-                            <Field type="text" id="name" name="name" autocomplete="off" required />
-                            <label htmlFor="name">
-                                <span>Name</span>
-                            </label>
+                            <div>
+                                <Field type="text" id="name" name="name" autoComplete="off" validate required />
+                                <label htmlFor="name" style={errors.name && { background: '#e95e5e8f' }}>
+                                    <span style={errors.name && { color: 'black', fontWeight: 'bolder' }}>Nome</span>
+                                </label>
 
-                            {errors.name && touched.name && (
-                                <StyledPFormError>O nome deve possuir ao menos 2 caracteres.</StyledPFormError>
-                            )}
+                            </div>
 
                         </div>
                         <div className="secondRow">
-                            <Field type="text" id="cpf" name="cpf" placeholder="CPF"
-                                onChange={(e) => handleChangeMaskCpf(e)} value={valorCpf} />
-                            {errors.cpf && touched.cpf && (
-                                <StyledPFormError>Por favor, digite um número de cpf válido.</StyledPFormError>
-                            )}
-                            <Field type="text" id="celular" name="celular" placeholder="Celular"
-                                onChange={(e) => handleChangeMaskCell(e)} value={valorCell} />
+                            <div>
+                                <Field type="text" id="cpf" name="cpf"
+                                    onChange={(e) => handleChangeMaskCpf(e)} value={valorCpf} autoComplete="off" required />
+                                <label htmlFor="cpf" style={errors.cpf && { background: '#e95e5e8f' }}>
+                                    <span>CPF</span>
+                                </label>
 
-                            {errors.celular && touched.celular && (
-                                <StyledPFormError>Por favor, digite um número de celular válido.</StyledPFormError>
-                            )}
+                            </div>
+                            <div>
+                                <Field type="text" id="celular" name="celular"
+                                    autoComplete="off" required />
+                                <label htmlFor="celular" style={errors.celular && { background: '#e95e5e8f' }}>
+                                    <span>Celular</span>
+                                </label>
+
+                            </div>
 
                         </div>
                         <div className="thirdRow">
-                            <Field type="text" id="email" name="email" placeholder="Email" />
-                            {errors.email && touched.email && (
-                                <StyledPFormError>Por favor, digite um endereço de email válido.</StyledPFormError>
-                            )}
+                            <div>
+                                <Field type="text" id="email" name="email" autoComplete="off" required />
+                                <label htmlFor="email" style={errors.email && { background: '#e95e5e8f' }}>
+                                    <span>Email</span>
+                                </label>
+
+                            </div>
                         </div>
                         <div className="fourthRow">
-                            <Field type="text" id="cep" name="cep" placeholder="CEP"
-                                onChange={(e) => handleChangeMaskCep(e)} value={valorCep} />
-                            {errors.cep || cepError ? (
-                                <StyledPFormError>Por favor, digite um número de CEP válido.</StyledPFormError>
-                            ) : ''}
-                            <Field type="text" id="endereco" name="endereco" placeholder="Endereço"
-                                value={valorEnd ? valorEnd.endereco : ''} />
+                            <div>
+                                <Field type="text" id="cep" name="cep"
+                                    onChange={(e) => handleChangeMaskCep(e)} value={valorCep} autoComplete="off" required />
+                                <label htmlFor="cep" style={errors.cep && { background: '#e95e5e8f' }}>
+                                    <span>CEP</span>
+                                </label>
 
-                            {errors.endereco && touched.endereco && (
-                                <StyledPFormError>Por favor, digite um endereço válido.</StyledPFormError>
-                            )}
+                            </div>
+                            <div>
+                                <Field type="text" id="endereco" name="endereco"
+                                    value={valorEnd ? valorEnd.endereco : ''} autoComplete="off" required />
+                                <label htmlFor="endereco" style={errors.endereco && { background: '#e95e5e8f' }}>
+                                    <span>Endereço</span>
+                                </label>
+
+                            </div>
                         </div>
                         <div className="fifthRow">
-                            <Field type="text" id="cidade" name="cidade" placeholder="Cidade"
-                                value={valorEnd ? valorEnd.cidade : ''} />
-                            {errors.cidade && touched.cidade && (
-                                <StyledPFormError>Por favor, digite uma cidade válida.</StyledPFormError>
-                            )}
-                            <Field type="text" id="estado" name="estado" placeholder="Estado"
-                                value={valorEnd ? valorEnd.estado : ''} />
-                            {errors.estado && touched.estado && (
-                                <StyledPFormError>Por favor, digite um endereço válido.</StyledPFormError>
-                            )}
+                            <div>
+                                <Field type="text" id="cidade" name="cidade"
+                                    value={valorEnd ? valorEnd.cidade : ''} autoComplete="off" required />
+                                <label htmlFor="cidade" style={errors.cidade && { background: '#e95e5e8f' }}>
+                                    <span>Cidade</span>
+                                </label>
+
+                            </div>
+                            <div>
+                                <Field type="text" id="estado" name="estado"
+                                    value={valorEnd ? valorEnd.estado : ''} autoComplete="off" required />
+                                <label htmlFor="estado" style={errors.estado && { background: '#e95e5e8f' }}>
+                                    <span>Estado</span>
+                                </label>
+
+                            </div>
 
 
                         </div>
                         <div className="lastRow">
-                            <button
-                                type="submit"
-                                className="btnSendComment"
-                                disabled={!isValid}
-                            >
-                                Finalizar Compra!
-                            </button>
+
+                            <FinishButton />
+
                         </div>
                     </Form>
                 )}
