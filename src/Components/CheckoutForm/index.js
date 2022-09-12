@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
 import { StyledPFormError, StyledivForm2 } from './style'
@@ -19,10 +19,7 @@ const schema = Yup.object().shape({
 })
 //
 function CheckouForm() {
-    const ref = useRef(null);
-    const test = () => {
-        console.log(ref)
-    }
+
     const [valorCpf, setValorCpf] = useState('')
     const [valorCell, setValorCell] = useState('')
     const [valorCep, setValorCep] = useState('')
@@ -67,7 +64,6 @@ function CheckouForm() {
             <Formik
                 validationSchema={schema}
                 onSubmit={onSubmit}
-                innerRef={ref}
                 initialValues={{
                     name: '',
                     cpf: '',
