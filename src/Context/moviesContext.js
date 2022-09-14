@@ -27,7 +27,6 @@ function MoviesProvider({ children }) {
             setRendersNumberOfItens(actualkart)
             return localStorage.setItem(`${to}`, JSON.stringify(movieToAdd));
         } else {
-            console.log(movieToAdd)
             actualkart.push({ ...movieToAdd[0] })
             setRendersNumberOfItens(actualkart)
             return localStorage.setItem(`${to}`, JSON.stringify(actualkart));
