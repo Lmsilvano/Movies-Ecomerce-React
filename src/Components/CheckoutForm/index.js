@@ -21,6 +21,7 @@ const schema = Yup.object().shape({
 //
 function CheckouForm() {
     const [valorEnd, setValorEnd] = useState(false)
+    // eslint-disable-next-line no-unused-vars
     const [cepError, setCepError] = useState(false)
     function masksApply(event, masktype) {
         const { value } = event.target
