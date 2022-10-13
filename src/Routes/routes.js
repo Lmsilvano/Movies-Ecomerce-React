@@ -1,6 +1,6 @@
 import MainPage from '../Pages/MainPage';
 import HomePage from '../Pages/Home';
-
+import CheckoutPage from '../Pages/CheckoutPage'
 export const routes = [
     {
         path: "/",
@@ -10,4 +10,8 @@ export const routes = [
         path: "home",
         element: <HomePage />
     },
+    {
+        path: "checkout",
+        element: <CheckoutPage />
+    }
 ];

@@ -25,7 +25,7 @@ function MoviesCards({ img, title, desc, genre, price, rate, id }) {
                 </div>
             </div>
             <span>R$: 65,59</span>
-            <PurchaseButton id={id} />
+            <PurchaseButton id={id} to='kart' from='kart' />
         </StyledDivCardsMovies>
     )
 }
