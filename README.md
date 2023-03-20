@@ -43,7 +43,7 @@ dica :(no windows basta segurar a tecla shift e clicar no fundo da pasta raiz do
 - com terminal aberto no diretório raiz do projeto, execute o comando "npm install -y".
 
 - Após concluir a instalação, mantendo-se no diretório raiz do projeto, execute o comando "npm start"
-- você também pode conferir o projeto rodando [aqui](https://starwarscatalog-certi.netlify.app)
+- você também pode conferir o projeto rodando [aqui](https://moviesecommerce-testedot.netlify.app/)
 
 ## Telas
 
