@@ -17,7 +17,5 @@ export const DisplayNumber = styled.div`
 `
 
 export const Total = styled.div`
-        position: absolute;
-        bottom:0;
-        left: 5px;
+        
 `
