@@ -13,17 +13,22 @@ Exercício de desenvolvimento de interface de e-commerce utilizando react, consu
 # Tecnologias utilizadas:
 
 ### ReactJS, Recursos utilizados:
+
 ##### Hooks
 State, Effect, Context
+
 ##### React Router ^6.3.0
 UseParams, BrowserRouter, Routes, Route, Link, NavLink.
+
 ##### Axios ^0.24.0
 Request(Get)
+
 #### Estilização
 * react-bootstrap: "^2.5.0"
 * bootstrap: "^5.2.0",
 * styled-components "^5.3.5",
-### Formularios
+
+#### Formularios
 * yup "^0.32.11"
 * formik "^2.2.9"
 
@@ -49,6 +54,7 @@ dica :(no windows basta segurar a tecla shift e clicar no fundo da pasta raiz do
 <div>
 
 ### Checkout com validação e busca por CEP
----
-![Checkout Form](screens/starships.png?raw=true)
 
+<div align="center">
+<img align="center" src="https://github.com/Lmsilvano/Movies-Ecomerce-React/blob/main/React-App.gif?raw=true" alt="Home Gif" />
+<div>
