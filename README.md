@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Exercício de desenvolvimento de interface de E-commerce fícticio.
+# Sobre o Projeto
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Instruções para rodar o projeto](#instruções-para-rodar-o-projeto)
+- [Telas](#telas)
 
-In the project directory, you can run:
+Exercício de desenvolvimento de interface de e-commerce utilizando react, consumindo api [TMDB](https://www.themoviedb.org/?language=pt) para busca de produtos fictícios(filmes) e [viacep](https://viacep.com.br) api para validação e busca de CEP no formulário de checkout 
 
-### `npm start`
+#### [Link do deploy do projeto na netlify](https://moviesecommerce-testedot.netlify.app/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Tecnologias utilizadas:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### ReactJS, Recursos utilizados:
+##### Hooks
+State, Effect, Context
+##### React Router ^6.3.0
+UseParams, BrowserRouter, Routes, Route, Link, NavLink.
+##### Axios ^0.24.0
+Request(Get)
+#### Estilização
+* react-bootstrap: "^2.5.0"
+* bootstrap: "^5.2.0",
+* styled-components "^5.3.5",
+### Formularios
+* yup "^0.32.11"
+* formik "^2.2.9"
 
-### `npm test`
+# Instruções para rodar o projeto.
+- Basta clonar, ou fazer donwload deste repositório;
+ 
+- e com o [Node](https://nodejs.org/en/) devidamente instalado em sua maquina;
+ 
+- Abra o terminal de sua prefência no diretório raiz deste projeto(o diretório raiz é onde se encontra o arquivo package.json). 
+dica :(no windows basta segurar a tecla shift e clicar no fundo da pasta raiz do projeto com o botão direito do mouse e selecionar "abrir janela do powershellaqui") 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- com terminal aberto no diretório raiz do projeto, execute o comando "npm install -y".
 
-### `npm run build`
+- Após concluir a instalação, mantendo-se no diretório raiz do projeto, execute o comando "npm start"
+- você também pode conferir o projeto rodando [aqui](https://starwarscatalog-certi.netlify.app)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Telas
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Pagina Principal
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<div align="center">
+<img align="center" src="https://j.gifs.com/99EYzx.gif" alt="Home Gif" />
+<div>
 
-### `npm run eject`
+### Checkout com validação e busca por CEP
+---
+![Checkout Form](screens/starships.png?raw=true)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
