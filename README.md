@@ -40,9 +40,15 @@ Request(Get)
 - Abra o terminal de sua prefência no diretório raiz deste projeto(o diretório raiz é onde se encontra o arquivo package.json). 
 dica :(no windows basta segurar a tecla shift e clicar no fundo da pasta raiz do projeto com o botão direito do mouse e selecionar "abrir janela do powershellaqui") 
 
-- com terminal aberto no diretório raiz do projeto, execute o comando "npm install -y".
+- com terminal aberto no diretório raiz do projeto, execute o comando: 
+```bash
+$ npm install -y
+```
 
-- Após concluir a instalação, mantendo-se no diretório raiz do projeto, execute o comando "npm start"
+- Após concluir a instalação, mantendo-se no diretório raiz do projeto, execute o comando:
+```bash
+$ npm start
+```
 - você também pode conferir o projeto rodando [aqui](https://moviesecommerce-testedot.netlify.app/)
 
 ## Telas
