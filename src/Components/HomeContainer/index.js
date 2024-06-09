@@ -11,6 +11,7 @@ const HomeContainer = () => {
         allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
         frameBorder="0"
         allowFullScreen
+        title="VK Video 1" // Add a unique title
       ></iframe>
       <iframe
         src="https://vk.com/video_ext.php?oid=259866354&id=456239383&hd=2&hash=ce5003535f742af2"
@@ -19,6 +20,7 @@ const HomeContainer = () => {
         allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
         frameBorder="0"
         allowFullScreen
+        title="VK Video 2" // Add a unique title
       ></iframe>
     </div>
     )
